@@ -1,4 +1,7 @@
 //Func. que muestra los marcadores y mapa
+
+let locationsInfo = [];
+
 const getLocations = () => {
     fetch('electricCharger.json')
         .then(response => response.json())
@@ -7,19 +10,44 @@ const getLocations = () => {
 
             locations.forEach(location => {
                 let locationData = {
-                    position:{lat:Number(location.geolocation.latitude),
-                              lng:Number(location.geolocation.longitude)},
-                    name:location.name,
-                    cargador:location.plug_type,
-                    costo:location.kw_price,
-                    estatus: location.state,
-                };
-                locationsInfo.push(locationData)
-                console.log(locationData)
-            });
 
-            if(navigator.geolocation){
-                navigator.geolocation.getCurrentPosition((data)=>{
+                    position: {
+                        lat: Number(location.geolocation.latitude),
+                        lng: Number(location.geolocation.longitude)
+                    },
+                    name: location.name,
+                        cargador:location.plug_type,
+                        costo:location.kw_price,
+                        estatus: location.state,
+                };
+                
+                locationsInfo.push(locationData);
+                
+                console.log(location.name);
+                
+                // locationsInfo.filter(location =>
+                //     location.cargador === carg
+                // )
+
+            });
+            // console.log('COORDENADAS',locationInfo);
+            
+
+            // let names = [];
+            // locations.forEach(location => {
+            //     let allNames = {
+            //             name:(location.name),
+            //     };
+            //     names.push(allNames)
+            // });
+            // console.log(names);
+            
+
+
+
+            
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition((data) => {
                     let currentPosition = {
                         lat: data.coords.latitude,
                         lng: data.coords.longitude
@@ -31,8 +59,9 @@ const getLocations = () => {
 
 };
 
+
 const dibujarMapa = (obj, locationsInfo) => {
-    let map = new google.maps.Map(document.getElementById('map'),{
+    let map = new google.maps.Map(document.getElementById('map'), {
         zoom: 4,
         center: obj,
         styles:[
@@ -119,4 +148,6 @@ const dibujarMapa = (obj, locationsInfo) => {
 window.addEventListener('load',getLocations);
 
 
+
 //Func. conteo de carga
+
