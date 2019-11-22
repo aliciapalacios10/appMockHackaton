@@ -10,6 +10,7 @@ const getLocations = () => {
 
             locations.forEach(location => {
                 let locationData = {
+
                     position: {
                         lat: Number(location.geolocation.latitude),
                         lng: Number(location.geolocation.longitude)
@@ -27,6 +28,7 @@ const getLocations = () => {
                 // locationsInfo.filter(location =>
                 //     location.cargador === carg
                 // )
+
             });
             // console.log('COORDENADAS',locationInfo);
             
@@ -61,25 +63,84 @@ const getLocations = () => {
 const dibujarMapa = (obj, locationsInfo) => {
     let map = new google.maps.Map(document.getElementById('map'), {
         zoom: 4,
-        center: obj
+        center: obj,
+        styles:[
+            {
+                "featureType": "landscape",
+                "stylers": [
+                    {
+                        "color": "#e6e9ec"
+                    }
+                ]
+            },
+            {
+                "featureType": "landscape.natural.terrain",
+                "stylers": [
+                    {
+                        "color": "#e6e9ec"
+                    }
+                ]
+            },
+            {
+                "featureType": "landscape.natural.terrain",
+                "elementType": "geometry",
+                "stylers": [
+                    {
+                        "color": "#e6e9ec"
+                    }
+                ]
+            },
+            {
+                "featureType": "poi.park",
+                "stylers": [
+                    {
+                        "color": "#a4dbb2"
+                    }
+                ]
+            },
+            {
+                "featureType": "road",
+                "stylers": [
+                    {
+                        "color": "#b0c1dd"
+                    }
+                ]
+            },
+            {
+                "featureType": "water",
+                "stylers": [
+                    {
+                        "color": "#acd5f5"
+                    }
+                ]
+            }
+        ]
     });
 
     let marker = new google.maps.Marker({
         position: obj,
-        title: 'Tu ubicacion'
+        title: 'Tu ubicacion',
+        icon: 'img/ubication.png'
     });
     marker.setMap(map);
 
     let markers = locationsInfo.map(place => {
-        return new google.maps.Marker({
-            position: place.position,
-            map: map,
-            title: place.name,
-            // title: place.cargador,
-            // title: place.costo,
-            // title: place.estatus
-            // icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
-        })
+        if (place.estatus === 'free'){
+            return new google.maps.Marker({
+                position: place.position,
+                map: map,
+                title: place.name,
+                icon: 'img/free.png'
+            });
+        } else {
+            return new google.maps.Marker({
+                position: place.position,
+                map: map,
+                title: place.name,
+                icon: 'img/busy.png'
+            })
+        }
+
     })
 
 };
