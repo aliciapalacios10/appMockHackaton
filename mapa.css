@@ -3,14 +3,42 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-
+    font-family: 'Roboto', sans-serif;
 }
 
 .form-control {
-    width: 55%!important;
+    width: 79%!important;
     border-radius: 4rem!important;
-
 }
+
+/* Dropdown */
+.dropdown-submenu {
+    position: relative;
+  }
+  
+  .dropdown-submenu a::after {
+    transform: rotate(-90deg);
+    position: absolute;
+    right: 6px;
+    top: .8em;
+  }
+  
+  .dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-left: .1rem;
+    margin-right: .1rem;
+  }
+
+  .nav-link {
+      color: white !important;
+  }
+
+  .navbarTogglerDemo01 {
+      width: 20%;
+  }
+
+
 #containerMap{
     height: 100vh;
 }
@@ -118,6 +146,20 @@ html, body {
             #btn_reserve{
                 background-color: #609C32;
             }
+footer {
+    margin-top: 30%;
+    width: 100%;
+    height: 15%;
+    background-color: #F2F2F2;
+}
+
+footer ul {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    padding: 0;
+}
+
 /*Contador*/
 #contador{
     height: 50vh;

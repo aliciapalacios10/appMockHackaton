@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Mapa</title>
     <meta name="viewport" content="initial-scale=1.0">
     <link rel="stylesheet"  href="mapa.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
 </head>
-<body>
 
+<body>
 
 <nav class="navbar navbar-dark bg-dark">
     <form class="form-inline">
@@ -30,7 +32,7 @@
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
     
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                <a class="nav-link dropdown-toggle navbarDropdownMenuLink" href="#" data-toggle="dropdown"
                   aria-haspopup="true" aria-expanded="false">
                   Precio
                 </a>
@@ -43,7 +45,7 @@
               </li>
     
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                <a class="nav-link dropdown-toggle navbarDropdownMenuLink" href="#" data-toggle="dropdown"
                   aria-haspopup="true" aria-expanded="false">
                   Conectores
                 </a>
@@ -53,11 +55,11 @@
                 </ul>
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                <a class="nav-link dropdown-toggle navbarDropdownMenuLink" href="#" data-toggle="dropdown"
                   aria-haspopup="true" aria-expanded="false">
                   Disponibilidad
                 </a>
-                <ul class="dropdown-menu estado" aria-labelledby="navbarDropdownMenuLink">
+                <ul class="dropdown-menu estado " aria-labelledby="navbarDropdownMenuLink">
                   <li><a class="dropdown-item" data-value="free" href="#">Libre</a></li>
                   <li><a class="dropdown-item" data-value="busy" href="#">Ocupado</a></li>
                 </ul>
@@ -72,7 +74,7 @@
 <!--Contenedor del mapa-->
 <section id="containerMap">
     <div id="map"></div>
-</section>
+  </section>
 
 <section id="contador" >
     <div class="row">
@@ -127,12 +129,20 @@
         </tr>
     </table>
 
-</section>
+  </section>
 
 <!-- Yael -->
 <div id="target">        
 </div>
 
+  <footer>
+    <ul>
+      <li><img src="img/Vector.png" alt=""></li>
+      <li><img src="img/calendar_today-24px 1.png" alt=""></li>
+      <li><img src="img/account_box-24px 1.png" alt=""></li>
+      <li><img src="img/Vector(1).png" alt=""></li>
+    </ul>
+  </footer>
 
 
 <!--Enlace a mapa de google-->
@@ -152,4 +162,5 @@ integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07j
 <script src="mapa.js"></script>
 <script src="dropdown.js"></script>
 </body>
+
 </html>
