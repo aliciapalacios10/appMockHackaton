@@ -5,6 +5,9 @@ let markers;
 let filtered=[];
 let map;
 let marker;
+let myPrice= document.querySelector(".precio")
+let myConnector=document.querySelector(".conector")
+let myState=document.querySelector(".estado")
 
 const getLocations = () => {
     fetch('https://cors-anywhere.herokuapp.com/api-electric-charger.herokuapp.com/electricCharger')
@@ -148,10 +151,60 @@ const dibujarMapa = (obj, locationsInfo) => {
 
 };
 
-let filterLocations= (criterio) => {
-    let criterion= criterio;
+// let filterLocations= (criterio) => {
+//     let criterion= criterio;
+//     console.log(criterion);
+//     filtered=locationsInfo.filter(location => (location.cargador).includes(criterion));
+//     console.log(filtered);
+
+//     // if(navigator.geolocation){
+//         navigator.geolocation.getCurrentPosition((data)=>{
+//             let currentPosition = {
+//                 lat: data.coords.latitude,
+//                 lng: data.coords.longitude
+//             };
+//             dibujarMapa(currentPosition, filtered)
+//         })
+// };
+
+// let filterByPrice = (e) => {
+//     selectedPrice = event.target.innerText
+//     console.log(`Holis, el precio es ${event.target.innerText}`)
+//     filtered=locationsInfo.filter(location => location.costo === selectedPrice);
+//     console.log(filtered);
+
+//     // if(navigator.geolocation){
+//         navigator.geolocation.getCurrentPosition((data)=>{
+//             let currentPosition = {
+//                 lat: data.coords.latitude,
+//                 lng: data.coords.longitude
+//             };
+//             dibujarMapa(currentPosition, filtered)
+//         })
+// }
+
+
+
+myPrice.addEventListener("click", (e) => {
+    selectedPrice = event.target.innerText
+    selectedPrice=selectedPrice.slice(1)
+    console.log(`Holis, el precio es ${event.target.innerText}`)
+    filtered=locationsInfo.filter(location => location.costo === selectedPrice);
+    console.log(filtered);
+
+        navigator.geolocation.getCurrentPosition((data)=>{
+            let currentPosition = {
+                lat: data.coords.latitude,
+                lng: data.coords.longitude
+            };
+            dibujarMapa(currentPosition, filtered)
+        })
+});
+
+myConnector.addEventListener("click", (event) => {
+    let criterion= event.target.innerText
     console.log(criterion);
-    filtered=locationsInfo.filter(location => location.cargador === criterion);
+    filtered=locationsInfo.filter(location => (location.cargador).includes(criterion));
     console.log(filtered);
 
     // if(navigator.geolocation){
@@ -162,21 +215,24 @@ let filterLocations= (criterio) => {
             };
             dibujarMapa(currentPosition, filtered)
         })
-    // }
+});
 
- /*   markers = filtered.map(place => {
-        return new google.maps.Marker({
-            position: place.position,
-            map: map,
-            title: place.name,
-            // title: place.cargador,
-            // title: place.costo,
-            // title: place.estatus
-            // icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
+myState.addEventListener("click", (event) => {
+    let estado= event.target.dataset.value
+    console.log(`el estado es: ${estado}`);
+    filtered=locationsInfo.filter(location => location.estatus === estado);
+    console.log(filtered);
+
+    // if(navigator.geolocation){
+        navigator.geolocation.getCurrentPosition((data)=>{
+            let currentPosition = {
+                lat: data.coords.latitude,
+                lng: data.coords.longitude
+            };
+            dibujarMapa(currentPosition, filtered)
         })
-    }) */
+});
 
-};
 
 window.addEventListener('load',getLocations);
 
