@@ -1,9 +1,14 @@
+.form-control {
+    width: 40%!important;
+    border-radius: 4.20rem!important;
+}
+
 #map {
-    height: 100%;
+    height: 161%;
 }
 
 html, body {
-    height: 100%;
+    height: 70%;
     margin: 0;
     padding: 0;
 }

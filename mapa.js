@@ -1,7 +1,5 @@
-
-
 const getLocations = () => {
-    fetch('electricCharger.json')
+    fetch('https://cors-anywhere.herokuapp.com/https://api-electric-charger.herokuapp.com/electricCharger')
         .then(response => response.json())
         .then(locations => {
             let locationsInfo = [];
