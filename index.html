@@ -6,6 +6,7 @@
     <meta name="viewport" content="initial-scale=1.0">
     <link rel="stylesheet"  href="mapa.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 </head>
 <body>
 
@@ -17,36 +18,114 @@
     </form>
 </nav>
 
+    <nav class="navbar navbar-dark bg-dark">
+        <form class="form-inline">
+          <input class="form-control mr-sm-2" type="search" placeholder="¿Dónde quieres llegar?" aria-label="Search">
+    
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+            aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+    
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Precio
+                </a>
+                <ul class="dropdown-menu precio"  aria-labelledby="navbarDropdownMenuLink">
+                  <li><a class="dropdown-item" href="#">$25</a></li>
+                  <li><a class="dropdown-item" href="#">$35</a></li>
+                  <li><a class="dropdown-item " href="#">$45</a></li>
+                  <li><a class="dropdown-item" href="#">$50</a></li>
+                </ul>
+              </li>
+    
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Conectores
+                </a>
+                <ul class="dropdown-menu conector" aria-labelledby="navbarDropdownMenuLink">
+                  <li><a class="dropdown-item" href="#">AC</a></li>
+                  <li><a class="dropdown-item" href="#">DC</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Disponibilidad
+                </a>
+                <ul class="dropdown-menu estado" aria-labelledby="navbarDropdownMenuLink">
+                  <li><a class="dropdown-item" data-value="free" href="#">Libre</a></li>
+                  <li><a class="dropdown-item" data-value="busy" href="#">Ocupado</a></li>
+                </ul>
+              </li>
+    
+            </ul>
+    
+          </div>
+    
+        </form>
+      </nav>
 <!--Contenedor del mapa-->
 <section id="containerMap">
     <div id="map"></div>
 </section>
 
-<!--Contenedor de carga-->
-<section id="loadCalculator">
-    <h1>Cargador</h1>
-    <form >
-        <label>Tiempo de carga:
-            <input type="time" name="hora" value="00:00:00" max="10:00:00" min="00:10:00" step="1">
-            <button><img  src="img/icon.png" alt="Enviar"></button>
-        </label>
-        <br>
-        <label>Costo:
-            <input type="number" name="costo" value="">
-            <button><img  src="img/icon.png" alt="Enviar"></button>
-        </label>
-        <br>
-        <label>Total de kw:
-            <input type="number" name="kw" value="">
-            <button><img  src="img/icon.png" alt="Enviar"></button>
-        </label>
-        <button>Calcular</button>
-        <button>Cargar</button>
-    </form>
+<section id="contador" >
+    <div class="row">
+        <div class="col-12">
+            <h1 id="date2"></h1>
+            <label >Tiempo de carga:
+                <input type="text" id="time"/>
+                <button id="timeButton"><img  src="img/icon.png" alt="Enviar"></button>
+            </label>
+            <br>
+            <label>Costo:
+                <input type="number" name="costo" value="">
+                <button><img  src="img/icon.png" alt="Enviar"></button>
+            </label>
+            <br>
+            <label>Total de kw:
+                <input type="number" name="kw" value="">
+                <button><img  src="img/icon.png" alt="Enviar"></button>
+            </label>
+            <div id="countDown"></div>
+            <div class="container invisible" id="containerLoading">
+                <div class="box">
+                    <div class="loader4"></div>
+                </div>
+            </div>
+            <div id="end" class="invisible">
+            <p>Carga completada</p>
+                <button id="pay">Pagar</button>
+            </div>
+        </div>
+    </div>
 </section>
-
-<section id="containerTime">
-    <div id="countdown1"></div>
+<section id="record">
+    <select name="select">
+        <option value="value1">Últimos 7 Días</option>
+        <option value="value2" selected>Últimos 15 Días</option>
+        <option value="value3">Últimos 30 Días</option>
+    </select>
+    <h1 id="date"></h1>
+    <p>3 sesiones 5892 kWh $1,200</p>
+    <p><img src="img/corazon.png">Cargadoras reales mexicanas</p>
+    <table style="width:100%">
+        <tr>
+            <th>Fecha</th>
+            <th>kWh</th>
+            <th>Costo</th>
+        </tr>
+        <tr>
+            <td><span id="today"></span></td>
+            <td><span id="energy"></span></td>
+            <td><span id="total"></span><img src="img/blackUbication.png" alt="ubication"/></td>
+        </tr>
+    </table>
 
 </section>
 
@@ -60,8 +139,17 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJ5Krf6tvkIa-OwnznUycwQ0qH7wjWz24&center=21.41469569968901,-105.90163134979584&zoom=6&format=png&maptype=roadmap&style=feature:landscape%7Ccolor:0xe6e9ec&style=feature:landscape.natural.terrain%7Ccolor:0xe6e9ec&style=feature:landscape.natural.terrain%7Celement:geometry%7Ccolor:0xe6e9ec&style=feature:poi.park%7Ccolor:0xa4dbb2&style=feature:road%7Ccolor:0xb0c1dd&style=feature:water%7Ccolor:0xacd5f5&size=480x360"
         async defer>
 </script>
-
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+</script>
 
 <script src="mapa.js"></script>
+<script src="dropdown.js"></script>
 </body>
 </html>
