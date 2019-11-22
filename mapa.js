@@ -41,14 +41,14 @@ let target = (data) => {
                         ${element.costo}</div>
                     </div>
                     <div class="btn">
-                        <input type="button" class="button" id="btn_charge" value="CARGAR">
+                        <a href="#contador"><input type="button" class="button" id="btn_charge" value="CARGAR"></a>
                         <input type="button" class="button" id="btn_reserve" value="RESERVAR">
                     </div>
             </div>
             `
     });    
     printTarget.innerHTML = str;
-}
+};
 
 const getLocations = () => {
     fetch('https://cors-anywhere.herokuapp.com/api-electric-charger.herokuapp.com/electricCharger')
@@ -271,7 +271,7 @@ const show =()=>{
 const sendInfo=()=>{
     showTime();
     show();
-    time.value = "";
+    // time.value = "";
 };
 timeButton.addEventListener('click', sendInfo);
 
@@ -285,16 +285,19 @@ m = n.getMonth() + 1;
 //Día
 d = n.getDate();
 
+let time1 = time.value;
+
+let time2 = time.value;
 // History
 const history = () =>{
     document.getElementById('today').innerHTML = `${d}/${m}`;
-    document.getElementById('energy').innerHTML = "aqui va la carga";
-    document.getElementById('total').innerText = "qui va el precio";
+    document.getElementById('energy').innerHTML = time1*30;
+    document.getElementById('total').innerText = time2*25;
 };
 // history();
 
 
 //Llamados a func.
 document.getElementById("date").innerHTML = `${d-7}/${m}/${y} - ${d}/${m}/${y}`;
-document.getElementById("date2").innerHTML = `${d}/${m}/${y}`;
+document.getElementById("date2").innerHTML = `Fecha: ${d}/${m}/${y}`;
 document.getElementById('pay').addEventListener('click',history);

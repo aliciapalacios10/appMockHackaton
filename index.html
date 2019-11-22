@@ -80,27 +80,34 @@
 
   <section id="contador">
     <div class="row">
-      <div class="col-12">
-        <h1 id="date2"></h1>
-        <label>Tiempo de carga:
-          <input type="text" id="time" />
-          <button id="timeButton"><img src="img/icon.png" alt="Enviar"></button>
-        </label>
-        <br>
-        <label>Costo:
-          <input type="number" name="costo" value="">
-          <button><img src="img/icon.png" alt="Enviar"></button>
-        </label>
-        <br>
-        <label>Total de kw:
-          <input type="number" name="kw" value="">
-          <button><img src="img/icon.png" alt="Enviar"></button>
-        </label>
-        <div id="countDown"></div>
-        <div class="container invisible" id="containerLoading">
-          <div class="box">
-            <div class="loader4"></div>
-          </div>
+        <div class="col-12">
+            <h1>Cargador</h1>
+            <p id="date2"></p>
+            <label >Tiempo de carga:
+                <input type="text" id="time"/>
+                <button id="timeButton"><img  src="img/icon.png" alt="Enviar"></button>
+            </label>
+            <br>
+            <p>Costo: 25/min.</p> <br>
+            <p>Total de kw:30</p>
+<!--            <label>Costo:-->
+<!--&lt;!&ndash;                <input type="number" name="costo" value="25">25/min&ndash;&gt;-->
+<!--&lt;!&ndash;                <button><img  src="img/icon.png" alt="Enviar"></button>&ndash;&gt;-->
+<!--            </label>-->
+<!--            <label>Total de kw:-->
+<!--                <input type="number" name="kw" value="30">30 kw-->
+<!--                <button><img  src="img/icon.png" alt="Enviar"></button>-->
+<!--            </label>-->
+            <div id="countDown"></div>
+            <div class="container invisible" id="containerLoading">
+                <div class="box">
+                    <div class="loader4"></div>
+                </div>
+            </div>
+            <div id="end" class="invisible">
+            <p>Carga completada</p>
+               <a href="#record"><button id="pay">Pagar</button></a>
+            </div>
         </div>
         <div id="end" class="invisible">
           <p>Carga completada</p>
@@ -108,8 +115,9 @@
         </div>
       </div>
     </div>
-   
-  <section class="record">
+</section>
+<section class="record" id="record">
+    <h1 style="text-align: center">Historial</h1>
     <select name="select" class="selectRecord">
       <option value="">Período</option>
       <option value="value1">Últimos 7 Días</option>
