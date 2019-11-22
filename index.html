@@ -6,6 +6,7 @@
     <meta name="viewport" content="initial-scale=1.0">
     <link rel="stylesheet"  href="mapa.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 </head>
 <body>
 
@@ -21,31 +22,58 @@
     <div id="map"></div>
 </section>
 
-<!--Contenedor de carga-->
-<section id="loadCalculator">
-    <h1>Cargador</h1>
-    <form >
-        <label>Tiempo de carga:
-            <input type="time" name="hora" value="00:00:00" max="10:00:00" min="00:10:00" step="1">
-            <button><img  src="img/icon.png" alt="Enviar"></button>
-        </label>
-        <br>
-        <label>Costo:
-            <input type="number" name="costo" value="">
-            <button><img  src="img/icon.png" alt="Enviar"></button>
-        </label>
-        <br>
-        <label>Total de kw:
-            <input type="number" name="kw" value="">
-            <button><img  src="img/icon.png" alt="Enviar"></button>
-        </label>
-        <button>Calcular</button>
-        <button>Cargar</button>
-    </form>
+<section id="contador" >
+    <div class="row">
+        <div class="col-12">
+            <h1 id="date2"></h1>
+            <label >Tiempo de carga:
+                <input type="text" id="time"/>
+                <button id="timeButton"><img  src="img/icon.png" alt="Enviar"></button>
+            </label>
+            <br>
+            <label>Costo:
+                <input type="number" name="costo" value="">
+                <button><img  src="img/icon.png" alt="Enviar"></button>
+            </label>
+            <br>
+            <label>Total de kw:
+                <input type="number" name="kw" value="">
+                <button><img  src="img/icon.png" alt="Enviar"></button>
+            </label>
+            <div id="countDown"></div>
+            <div class="container invisible" id="containerLoading">
+                <div class="box">
+                    <div class="loader4"></div>
+                </div>
+            </div>
+            <div id="end" class="invisible">
+            <p>Carga completada</p>
+                <button id="pay">Pagar</button>
+            </div>
+        </div>
+    </div>
 </section>
-
-<section id="containerTime">
-    <div id="countdown1"></div>
+<section id="record">
+    <select name="select">
+        <option value="value1">Últimos 7 Días</option>
+        <option value="value2" selected>Últimos 15 Días</option>
+        <option value="value3">Últimos 30 Días</option>
+    </select>
+    <h1 id="date"></h1>
+    <p>3 sesiones 5892 kWh $1,200</p>
+    <p><img src="img/corazon.png">Cargadoras reales mexicanas</p>
+    <table style="width:100%">
+        <tr>
+            <th>Fecha</th>
+            <th>kWh</th>
+            <th>Costo</th>
+        </tr>
+        <tr>
+            <td><span id="today"></span></td>
+            <td><span id="energy"></span></td>
+            <td><span id="total"></span><img src="img/blackUbication.png" alt="ubication"/></td>
+        </tr>
+    </table>
 
 </section>
 
