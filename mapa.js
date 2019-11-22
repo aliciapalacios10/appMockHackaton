@@ -26,18 +26,19 @@ const getLocations = () => {
                     costo:location.kw_price,
                     estatus: location.state,
                 };
-                
+
                 locationsInfo.push(locationData);
-                
+
                 console.log(location.name);
-                
+
                 // locationsInfo.filter(location =>
                 //     location.cargador === carg
                 // )
 
             });
+
             // console.log('COORDENADAS',locationInfo);
-            
+
 
             // let names = [];
             // locations.forEach(location => {
@@ -47,11 +48,7 @@ const getLocations = () => {
             //     names.push(allNames)
             // });
             // console.log(names);
-            
 
-
-
-            
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition((data) => {
                     let currentPosition = {
@@ -64,6 +61,8 @@ const getLocations = () => {
         })
 
 };
+
+window.addEventListener('load',getLocations);
 
 
 const dibujarMapa = (obj, locationsInfo) => {
@@ -151,39 +150,6 @@ const dibujarMapa = (obj, locationsInfo) => {
 
 };
 
-// let filterLocations= (criterio) => {
-//     let criterion= criterio;
-//     console.log(criterion);
-//     filtered=locationsInfo.filter(location => (location.cargador).includes(criterion));
-//     console.log(filtered);
-
-//     // if(navigator.geolocation){
-//         navigator.geolocation.getCurrentPosition((data)=>{
-//             let currentPosition = {
-//                 lat: data.coords.latitude,
-//                 lng: data.coords.longitude
-//             };
-//             dibujarMapa(currentPosition, filtered)
-//         })
-// };
-
-// let filterByPrice = (e) => {
-//     selectedPrice = event.target.innerText
-//     console.log(`Holis, el precio es ${event.target.innerText}`)
-//     filtered=locationsInfo.filter(location => location.costo === selectedPrice);
-//     console.log(filtered);
-
-//     // if(navigator.geolocation){
-//         navigator.geolocation.getCurrentPosition((data)=>{
-//             let currentPosition = {
-//                 lat: data.coords.latitude,
-//                 lng: data.coords.longitude
-//             };
-//             dibujarMapa(currentPosition, filtered)
-//         })
-// }
-
-
 
 myPrice.addEventListener("click", (e) => {
     selectedPrice = event.target.innerText
@@ -237,6 +203,70 @@ myState.addEventListener("click", (event) => {
 window.addEventListener('load',getLocations);
 
 
+const pay =()=> {
+    document.getElementById('end').className = "visible";
+};
+
 
 //Func. conteo de carga
+const time = document.getElementById('time');
+const timeButton = document.getElementById('timeButton');
+document.getElementById('countDown');
+
+// function
+const showTime =  () => {
+    const timeValue = time.value;
+    let contador = timeValue;
+    countDown.textContent = contador;
+    setTimeout( () => {
+        // document.getElementById('end').innerHTML=`<p>Carga completada</p><button>Pagar</button>`;
+        pay();
+    }, timeValue * 1000);
+    const countDownValue = setInterval( ()=> {
+        if (contador > 0) {
+            countDown.textContent = contador;
+            contador--;
+            countDown.textContent = contador;
+        } else {
+            clearInterval(countDownValue);
+        }
+    }, 1000);
+
+
+};
+
+const show =()=>{
+    document.getElementById("containerLoading").className = "visible";
+};
+
+const sendInfo=()=>{
+    showTime();
+    show();
+    time.value = "";
+};
+timeButton.addEventListener('click', sendInfo);
+
+
+//Record
+n =  new Date();
+//Año
+y = n.getFullYear();
+//Mes
+m = n.getMonth() + 1;
+//Día
+d = n.getDate();
+
+// History
+const history = () =>{
+    document.getElementById('today').innerHTML = `${d}/${m}/${y}`;
+    document.getElementById('energy').innerHTML = "aqui va la carga";
+    document.getElementById('total').innerText = "qui va el precio;"
+};
+// history();
+
+
+//Llamados a func.
+document.getElementById("date").innerHTML = `${d-7}/${m}/${y} - ${d}/${m}/${y}`;
+document.getElementById("date2").innerHTML = `${d}/${m}/${y}`;
+document.getElementById('pay').addEventListener('click',history);
 
