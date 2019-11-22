@@ -1,8 +1,9 @@
 
 html, body {
-    height: 70%;
+    height: 100%;
     margin: 0;
     padding: 0;
+
 }
 
 .form-control {
@@ -21,3 +22,38 @@ html, body {
 #loadCalculator{
     height: 20vh;
 }
+
+/*Contador*/
+#contador{
+    height: 50vh;
+}
+.conteiner-countdown-loop {
+    color: #333;
+    text-align: center;
+}
+
+h2.countdown-loop {
+    font-weight: normal;
+}
+
+li.countdown-loop {
+    display: inline-block;
+    font-size: 1.5em;
+    list-style-type: none;
+    padding: 1em;
+    text-transform: uppercase;
+}
+
+li.countdown-loop span {
+    display: block;
+    font-size: 4.5rem;
+}
+
+.conteiner-countdown-loop {
+    margin: 0 auto;
+}
+
+
+
+/* End carousel */
+

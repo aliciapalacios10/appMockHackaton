@@ -6,7 +6,6 @@ const getLocations = () => {
     fetch('electricCharger.json')
         .then(response => response.json())
         .then(locations => {
-            let locationsInfo = [];
 
             locations.forEach(location => {
                 let locationData = {
@@ -16,22 +15,23 @@ const getLocations = () => {
                         lng: Number(location.geolocation.longitude)
                     },
                     name: location.name,
-                        cargador:location.plug_type,
-                        costo:location.kw_price,
-                        estatus: location.state,
+                    cargador:location.plug_type,
+                    costo:location.kw_price,
+                    estatus: location.state,
                 };
-                
+
                 locationsInfo.push(locationData);
-                
+
                 console.log(location.name);
-                
+
                 // locationsInfo.filter(location =>
                 //     location.cargador === carg
                 // )
 
             });
+
             // console.log('COORDENADAS',locationInfo);
-            
+
 
             // let names = [];
             // locations.forEach(location => {
@@ -41,11 +41,7 @@ const getLocations = () => {
             //     names.push(allNames)
             // });
             // console.log(names);
-            
 
-
-
-            
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition((data) => {
                     let currentPosition = {
@@ -150,4 +146,61 @@ window.addEventListener('load',getLocations);
 
 
 //Func. conteo de carga
+const time = document.getElementById('time');
+const timeButton = document.getElementById('timeButton');
+document.getElementById('countDown');
+// function
+const showTime =  () => {
+    const timeValue = time.value;
+    let contador = timeValue;
+    countDown.textContent = contador;
+    setTimeout(function () {
+        document.getElementById('end').innerHTML=`<p>Carga completada</p><button>Pagar</button>`;
+    }, timeValue * 1000);
+    const countDownValue = setInterval( ()=> {
+        if (contador > 0) {
+            countDown.textContent = contador;
+            contador--;
+            countDown.textContent = contador;
+        } else {
+            clearInterval(countDownValue);
+        }
+    }, 1000);
+};
+// show count Down
+timeButton.addEventListener('click', showTime);
+
+
+//carrusel
+$('#blogCarousel').carousel({
+    interval: 5000
+});
+
+const printData = () => {
+    fetch('electricCharger.json')
+        .then(response => response.json())
+        .then(locations => {
+
+            locations.forEach(place => {
+        let card = `
+                        <div class="card" style="width: 13rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">${place.name}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">Tipo de cargador: ${place.plug_type}.</h6>
+                                <p class="card-text">Precio: ${place.kw_price}/min.</p>
+                                <p class="card-text">Estado: ${place.state}.</p>
+                                <a href="#" class="card-link">Reservar</a>
+                                <a href="#" class="card-link">Cargar</a>
+                            </div>
+                        </div>
+
+`;
+        document.getElementById('cards').insertAdjacentHTML("beforeend", card);
+    });
+    return printData;
+})
+};
+
+printData();
+
 
