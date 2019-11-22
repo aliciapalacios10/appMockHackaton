@@ -287,9 +287,9 @@ d = n.getDate();
 
 // History
 const history = () =>{
-    document.getElementById('today').innerHTML = `${d}/${m}/${y}`;
+    document.getElementById('today').innerHTML = `${d}/${m}`;
     document.getElementById('energy').innerHTML = "aqui va la carga";
-    document.getElementById('total').innerText = "qui va el precio;"
+    document.getElementById('total').innerText = "qui va el precio";
 };
 // history();
 

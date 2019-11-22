@@ -299,3 +299,70 @@ li.countdown-loop span {
     border: black solid;
     text-align: center;
 }
+
+.selectRecord {
+    background: #c4c4c4;
+    border: none;
+    border-radius: 5px;
+    width: 167px;
+    height: 31px;
+    text-align: center;
+    margin-bottom: 10%;
+    margin-top: 30%;
+    text-decoration: none;
+    font-family: "Roboto Light", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    color: black;
+
+}
+
+.selectRecord option {
+    background-color: #333;
+    border-radius: 5px;
+    border: 2px solid #828282 !important;
+    text-align: center !important;
+    color: #F2F2F2;
+
+}
+
+.textRecord {
+    text-align: center;
+    border-top: solid 2px black;
+    border-bottom: solid 2px black;
+    width: 300px;
+    padding: 2%;
+    margin-left: 9%;
+}
+.textRecord h1 {
+    font-weight: 600;
+    line-height: 19px;
+    color: #000000;
+    font-size: 14px;
+}
+.textRecord p {
+    color: #828282;
+    font-size: 14px;
+    padding: 0 1% 0 0;
+    margin: 0;
+}
+
+table th {
+    text-align: inherit;
+    border-bottom: 2px solid black;
+}
+table {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    color: #828282;
+    width: 86%;
+    text-align: center;
+    margin-left: 9%;
+}
+
+table td {
+    padding:2%;
+}
