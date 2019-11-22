@@ -10,7 +10,7 @@ html, body {
     z-index: 11!important;
 }
 .form-control {
-    width: 79%!important;
+    width: 75%!important;
     border-radius: 4rem!important;
 }
 
@@ -111,7 +111,6 @@ html, body {
             display: flex;
             justify-content: center;
             align-items: center;
-            border: solid 1px black;
         }
         .date{
             box-sizing: border-box;
