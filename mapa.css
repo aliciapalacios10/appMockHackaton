@@ -6,9 +6,8 @@ html, body {
 }
 
 .form-control {
-    width: 80%!important;
+    width: 79%!important;
     border-radius: 4rem!important;
-
 }
 
 /* Dropdown */
@@ -30,6 +29,14 @@ html, body {
     margin-right: .1rem;
   }
 
+  .nav-link {
+      color: white !important;
+  }
+
+  .navbarTogglerDemo01 {
+      width: 20%;
+  }
+
 
 #containerMap{
     height: 100vh;
@@ -41,4 +48,18 @@ html, body {
 
 #loadCalculator{
     height: 20vh;
+}
+
+footer {
+    margin-top: 30%;
+    width: 100%;
+    height: 15%;
+    background-color: #F2F2F2;
+}
+
+footer ul {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    padding: 0;
 }
