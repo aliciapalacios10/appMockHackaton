@@ -250,7 +250,7 @@ li.countdown-loop span {
 .loader4{
     position: relative;
     width: 150px;
-    height: 20px;
+    height: 44px;
     top: 45%;
     top: -webkit-calc(50% - 10px);
     top: calc(50% - 10px);
@@ -258,6 +258,7 @@ li.countdown-loop span {
     left: -webkit-calc(50% - 75px);
     left: calc(50% - 75px);
     background-color: rgba(255,255,255,0.2);
+    text-align: center;
 }
 
 .loader4:before{
@@ -266,7 +267,7 @@ li.countdown-loop span {
     background-color: black;
     top: 0;
     left: 0;
-    height: 20px;
+    height: 44px;
     width: 0;
     z-index: 0;
     opacity: 1;
@@ -319,7 +320,7 @@ li.countdown-loop span {
     height: 31px;
     text-align: center;
     margin-bottom: 10%;
-    margin-top: 20%;
+    margin-top: 7%;
     text-decoration: none;
     font-family: "Roboto Light", sans-serif;
     font-style: normal;
@@ -376,4 +377,45 @@ table {
 
 table td {
     padding:2%;
+}
+
+
+#contador {
+    height: 100vh;
+    font-size: 14px;
+    justify-content: center;
+    display: flex;
+    padding: 20% 0;
+}
+
+#contador button {
+    text-decoration: none;
+    border: none;
+}
+
+#contador h1 {
+    text-align: center;
+}
+
+#countDown {
+    text-align: center;
+    font-size: 20px;
+    padding: 10%;
+}
+
+#end {
+    text-align: center;
+    font-size: 20px;
+    border: none;
+    border-radius: 25px;
+    width: 80%;
+    height: 30%;
+    justify-content: center;
+    display: block;
+    padding: 8%;
+    background:#24292E;
+    color:white;
+    position: absolute;
+    margin-left: 6%;
+    top: 15%;
 }
