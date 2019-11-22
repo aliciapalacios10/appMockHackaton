@@ -5,9 +5,15 @@ let markers;
 let filtered=[];
 let map;
 let marker;
-let myPrice= document.querySelector(".precio")
-let myConnector=document.querySelector(".conector")
-let myState=document.querySelector(".estado")
+//Func. conteo de carga
+const time = document.getElementById('time');
+const timeButton = document.getElementById('timeButton');
+document.getElementById('countDown');
+let myPrice= document.querySelector(".precio");
+let myConnector=document.querySelector(".conector");
+let myState=document.querySelector(".estado");
+let time1 = time.value;
+let time2 = time.value;
 
 // Yael
 //FUncion para imprimir las tarjetas
@@ -177,12 +183,12 @@ const dibujarMapa = (obj, locationsInfo) => {
 
 
 myPrice.addEventListener("click", (e) => {
-    selectedPrice = event.target.innerText
-    selectedPrice=selectedPrice.slice(1)
-    console.log(`Holis, el precio es ${event.target.innerText}`)
+    selectedPrice = event.target.innerText;
+    selectedPrice=selectedPrice.slice(1);
+    console.log(`Holis, el precio es ${event.target.innerText}`);
     filtered=locationsInfo.filter(location => location.costo === selectedPrice);
     console.log(filtered);
-    target(filtered)
+    target(filtered);
 
 
         navigator.geolocation.getCurrentPosition((data)=>{
@@ -195,11 +201,11 @@ myPrice.addEventListener("click", (e) => {
 });
 
 myConnector.addEventListener("click", (event) => {
-    let criterion= event.target.innerText
+    let criterion= event.target.innerText;
     console.log(criterion);
     filtered=locationsInfo.filter(location => (location.cargador).includes(criterion));
     console.log(filtered);
-    target(filtered)
+    target(filtered);
 
     // if(navigator.geolocation){
         navigator.geolocation.getCurrentPosition((data)=>{
@@ -212,11 +218,11 @@ myConnector.addEventListener("click", (event) => {
 });
 
 myState.addEventListener("click", (event) => {
-    let estado= event.target.dataset.value
+    let estado= event.target.dataset.value;
     console.log(`el estado es: ${estado}`);
     filtered=locationsInfo.filter(location => location.estatus === estado);
     console.log(filtered);
-    target(filtered)
+    target(filtered);
 
     // if(navigator.geolocation){
         navigator.geolocation.getCurrentPosition((data)=>{
@@ -234,13 +240,11 @@ window.addEventListener('load',getLocations);
 
 const pay =()=> {
     document.getElementById('end').className = "visible";
+
 };
 
 
-//Func. conteo de carga
-const time = document.getElementById('time');
-const timeButton = document.getElementById('timeButton');
-document.getElementById('countDown');
+
 
 // function
 const showTime =  () => {
@@ -270,7 +274,9 @@ const show =()=>{
 const sendInfo=()=>{
     showTime();
     show();
-    // time.value = "";
+    document.getElementById('today').innerHTML = `${d}/${m}`;
+    document.getElementById('energy').innerHTML = Number(time1)*30;
+    document.getElementById('total').innerText = Number(time2)*25;
 };
 timeButton.addEventListener('click', sendInfo);
 
@@ -284,19 +290,9 @@ m = n.getMonth() + 1;
 //Día
 d = n.getDate();
 
-let time1 = time.value;
-
-let time2 = time.value;
-// History
-const history = () =>{
-    document.getElementById('today').innerHTML = `${d}/${m}`;
-    document.getElementById('energy').innerHTML = Number(time1)*30;
-    document.getElementById('total').innerText = Number(time2)*25;
-};
-
 
 
 //Llamados a func.
 document.getElementById("date").innerHTML = `${d-7}/${m}/${y} - ${d}/${m}/${y}`;
 document.getElementById("date2").innerHTML = `Fecha: ${d}/${m}/${y}`;
-document.getElementById('pay').addEventListener('click',history);
+
