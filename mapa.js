@@ -55,6 +55,8 @@ const getLocations = () => {
 
 };
 
+window.addEventListener('load',getLocations);
+
 
 const dibujarMapa = (obj, locationsInfo) => {
     let map = new google.maps.Map(document.getElementById('map'), {
@@ -141,21 +143,25 @@ const dibujarMapa = (obj, locationsInfo) => {
 
 };
 
-window.addEventListener('load',getLocations);
 
+const pay =()=> {
+    document.getElementById('end').className = "visible";
+};
 
 
 //Func. conteo de carga
 const time = document.getElementById('time');
 const timeButton = document.getElementById('timeButton');
 document.getElementById('countDown');
+
 // function
 const showTime =  () => {
     const timeValue = time.value;
     let contador = timeValue;
     countDown.textContent = contador;
-    setTimeout(function () {
-        document.getElementById('end').innerHTML=`<p>Carga completada</p><button>Pagar</button>`;
+    setTimeout( () => {
+        // document.getElementById('end').innerHTML=`<p>Carga completada</p><button>Pagar</button>`;
+        pay();
     }, timeValue * 1000);
     const countDownValue = setInterval( ()=> {
         if (contador > 0) {
@@ -166,41 +172,42 @@ const showTime =  () => {
             clearInterval(countDownValue);
         }
     }, 1000);
-};
-// show count Down
-timeButton.addEventListener('click', showTime);
 
 
-//carrusel
-$('#blogCarousel').carousel({
-    interval: 5000
-});
-
-const printData = () => {
-    fetch('electricCharger.json')
-        .then(response => response.json())
-        .then(locations => {
-
-            locations.forEach(place => {
-        let card = `
-                        <div class="card" style="width: 13rem;">
-                            <div class="card-body">
-                                <h5 class="card-title">${place.name}</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">Tipo de cargador: ${place.plug_type}.</h6>
-                                <p class="card-text">Precio: ${place.kw_price}/min.</p>
-                                <p class="card-text">Estado: ${place.state}.</p>
-                                <a href="#" class="card-link">Reservar</a>
-                                <a href="#" class="card-link">Cargar</a>
-                            </div>
-                        </div>
-
-`;
-        document.getElementById('cards').insertAdjacentHTML("beforeend", card);
-    });
-    return printData;
-})
 };
 
-printData();
+const show =()=>{
+    document.getElementById("containerLoading").className = "visible";
+};
 
+const sendInfo=()=>{
+    showTime();
+    show();
+    time.value = "";
+};
+timeButton.addEventListener('click', sendInfo);
+
+
+//Record
+n =  new Date();
+//Año
+y = n.getFullYear();
+//Mes
+m = n.getMonth() + 1;
+//Día
+d = n.getDate();
+
+// History
+const history = () =>{
+    document.getElementById('today').innerHTML = `${d}/${m}/${y}`;
+    document.getElementById('energy').innerHTML = "aqui va la carga";
+    document.getElementById('total').innerText = "qui va el precio;"
+};
+// history();
+
+
+//Llamados a func.
+document.getElementById("date").innerHTML = `${d-7}/${m}/${y} - ${d}/${m}/${y}`;
+document.getElementById("date2").innerHTML = `${d}/${m}/${y}`;
+document.getElementById('pay').addEventListener('click',history);
 
