@@ -291,8 +291,8 @@ let time2 = time.value;
 // History
 const history = () =>{
     document.getElementById('today').innerHTML = `${d}/${m}`;
-    document.getElementById('energy').innerHTML = time1*30;
-    document.getElementById('total').innerText = time2*25;
+    document.getElementById('energy').innerHTML = Number(time1)*30;
+    document.getElementById('total').innerText = Number(time2)*25;
 };
 // history();
 
