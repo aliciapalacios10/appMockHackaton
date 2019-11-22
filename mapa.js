@@ -1,11 +1,66 @@
 //Func. que muestra los marcadores y mapa
+const printTarget = document.getElementById("target");
 
 let locationsInfo = [];
 
 const getLocations = () => {
-    fetch('electricCharger.json')
+    fetch('https://cors-anywhere.herokuapp.com/https://api-electric-charger.herokuapp.com/electricCharger')
         .then(response => response.json())
         .then(locations => {
+
+        // Yael
+        let date = locations;
+        console.log(date);
+    
+        let target = (data) => {
+            let str = '';
+            data.forEach(element =>{
+                let i=0;
+                str +=
+                    `<div id="card${element.id}" class="container">
+                        <div class="title">
+                            Mirna Guzman
+                        </div>
+                        <div class="date-marca" id="marca">
+                            ${element.name}
+                        </div>
+                        <div class="container_date">
+                            <div class="date" id="status">
+                                <img class="icon-target" src="img/electric-station.png">
+                                ${element.state.toUpperCase()}
+                            </div>
+                            <div class="date" id="type">
+                                <img class="icon-target" src="img/tools-and-utensils.png">
+                                ${element.plug_type.slice(0,-5)}
+                                </br>
+                                ${element.plug_type.slice(4,8)}
+                            </div>
+                            <div class="date" id="price">
+                                <img class="icon-target" src="img/coin.png">
+                                ${element.kw_price}</div>
+                            </div>
+                            <div class="btn">
+                                <input type="button" class="button" id="btn_charge" value="CARGAR">
+                                <input type="button" class="button" id="btn_reserve" value="RESERVAR">
+                            </div>
+                    </div>
+                    `
+            });
+    
+            // console.log(str);
+            // let newArray=[]
+            
+            printTarget.innerHTML = str;
+            console.log(printTarget)
+    
+            const container = document.querySelector("container")
+            console.log(container);
+    
+    
+        }
+    
+        target(date)
+
             let locationsInfo = [];
 
             locations.forEach(location => {
@@ -56,6 +111,7 @@ const getLocations = () => {
                 })
             }
         })
+
 
 };
 
