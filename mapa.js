@@ -248,7 +248,6 @@ const showTime =  () => {
     let contador = timeValue;
     countDown.textContent = contador;
     setTimeout( () => {
-        // document.getElementById('end').innerHTML=`<p>Carga completada</p><button>Pagar</button>`;
         pay();
     }, timeValue * 1000);
     const countDownValue = setInterval( ()=> {
@@ -294,7 +293,7 @@ const history = () =>{
     document.getElementById('energy').innerHTML = time1*30;
     document.getElementById('total').innerText = time2*25;
 };
-// history();
+
 
 
 //Llamados a func.
