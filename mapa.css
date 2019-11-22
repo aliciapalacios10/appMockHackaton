@@ -195,3 +195,12 @@ li.countdown-loop span {
     90%{opacity: 0; width: 100%;}
     100%{opacity: 0;width: 0;}
 }
+
+
+/*Record*/
+
+.record {
+    height: 100vh;
+    border: black solid;
+    text-align: center;
+}
