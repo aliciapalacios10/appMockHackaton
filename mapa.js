@@ -1,24 +1,27 @@
 //Func. que muestra los marcadores y mapa
 
 let locationsInfo = [];
+let markers;
+let filtered=[];
+let map;
+let marker;
 
 const getLocations = () => {
-    fetch('electricCharger.json')
+    fetch('https://cors-anywhere.herokuapp.com/api-electric-charger.herokuapp.com/electricCharger')
         .then(response => response.json())
         .then(locations => {
-            let locationsInfo = [];
 
             locations.forEach(location => {
                 let locationData = {
-
+                    id:location.id,
                     position: {
                         lat: Number(location.geolocation.latitude),
                         lng: Number(location.geolocation.longitude)
                     },
                     name: location.name,
-                        cargador:location.plug_type,
-                        costo:location.kw_price,
-                        estatus: location.state,
+                    cargador:location.plug_type,
+                    costo:location.kw_price,
+                    estatus: location.state,
                 };
                 
                 locationsInfo.push(locationData);
@@ -61,7 +64,7 @@ const getLocations = () => {
 
 
 const dibujarMapa = (obj, locationsInfo) => {
-    let map = new google.maps.Map(document.getElementById('map'), {
+    map = new google.maps.Map(document.getElementById('map'), {
         zoom: 4,
         center: obj,
         styles:[
@@ -117,14 +120,14 @@ const dibujarMapa = (obj, locationsInfo) => {
         ]
     });
 
-    let marker = new google.maps.Marker({
+    marker = new google.maps.Marker({
         position: obj,
         title: 'Tu ubicacion',
         icon: 'img/ubication.png'
     });
     marker.setMap(map);
 
-    let markers = locationsInfo.map(place => {
+    markers = locationsInfo.map(place => {
         if (place.estatus === 'free'){
             return new google.maps.Marker({
                 position: place.position,
@@ -142,6 +145,36 @@ const dibujarMapa = (obj, locationsInfo) => {
         }
 
     })
+
+};
+
+let filterLocations= (criterio) => {
+    let criterion= criterio;
+    console.log(criterion);
+    filtered=locationsInfo.filter(location => location.cargador === criterion);
+    console.log(filtered);
+
+    // if(navigator.geolocation){
+        navigator.geolocation.getCurrentPosition((data)=>{
+            let currentPosition = {
+                lat: data.coords.latitude,
+                lng: data.coords.longitude
+            };
+            dibujarMapa(currentPosition, filtered)
+        })
+    // }
+
+ /*   markers = filtered.map(place => {
+        return new google.maps.Marker({
+            position: place.position,
+            map: map,
+            title: place.name,
+            // title: place.cargador,
+            // title: place.costo,
+            // title: place.estatus
+            // icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
+        })
+    }) */
 
 };
 
