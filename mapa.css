@@ -45,12 +45,107 @@ html, body {
 
 #map {
     height: 100%;
+    position: fixed;
 }
 
 #loadCalculator{
     height: 20vh;
 }
 
+/* Yael */
+.target{
+    box-sizing: border-box;
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+    position: relative;
+    float: top;
+    z-index: 10;
+}
+
+.container{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 90vw;
+    height: 30vh;
+    border-radius: 15px;
+}
+
+    .title{
+        box-sizing: border-box;
+        display: flex;
+        width: 100%;
+        height: 20%;
+        justify-content: space-between;       
+        border-radius: 15px;
+        background-color: #828282;
+        color: #ffffff;
+        justify-content: center;
+        align-items: center;
+    }
+    .container_date{
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        width: 100%;
+        height: 80%;
+        border-radius: 15px;
+        text-align: center;
+    }
+        .date-marca{
+            box-sizing: border-box;
+            width: 100%;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: solid 1 px black;
+        }
+        .date{
+            box-sizing: border-box;
+            margin:0;
+            padding: 1px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 65px;
+            height: 65px;
+            border: solid 2px #C4C4C4;
+            border-radius: 10px;;
+            text-align: center;
+            font-size: .7rem;
+            font-family: 'Open Sans', sans-serif;
+            
+        }
+        .icon-target{
+            width: 24px;
+            height: 24px;
+        }
+
+        .btn{
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-around;
+        }
+            .button{
+                width: 94px;
+                height: 32px;
+                margin: 10px;
+                border-radius: 10px;
+                border: none;
+                font-size: 0.8rem;
+            }
+            #btn_charge{
+                background-color: #00C2FF;
+            }
+            #btn_reserve{
+                background-color: #609C32;
+            }
 footer {
     margin-top: 30%;
     width: 100%;
