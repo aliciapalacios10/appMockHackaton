@@ -14,7 +14,8 @@
 
 <body>
 
-  <nav class="navbar navbar-dark bg-dark">
+  <nav class="navbar navbar-dark bg-dark nav">
+
     <form class="form-inline">
       <input class="form-control mr-sm-2" type="search" placeholder="¿Dónde quieres llegar?" aria-label="Search">
 
@@ -37,7 +38,6 @@
               <li><a class="dropdown-item" href="#">$50</a></li>
             </ul>
           </li>
-
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle navbarDropdownMenuLink" href="#" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
@@ -58,9 +58,9 @@
               <li><a class="dropdown-item" data-value="busy" href="#">Ocupado</a></li>
             </ul>
           </li>
+
         </ul>
-        </li>
-        </ul>
+
       </div>
     </form>
   </nav>
@@ -69,6 +69,10 @@
   <section id="containerMap">
     <div id="map"></div>
   </section>
+
+  <!-- Yael -->
+  <div id="target">
+  </div>
 
   <section id="contador">
     <div class="row">
@@ -100,17 +104,42 @@
         </div>
       </div>
     </div>
+    <<<<<<< HEAD </section> <section class="record">
+      <select name="select">
+        <option value="value1">Últimos 7 Días</option>
+        <option value="value2" selected>Últimos 15 Días</option>
+        <option value="value3">Últimos 30 Días</option>
+      </select>
+      <h1 id="date"></h1>
+      <p>3 sesiones 5892 kWh $1,200</p>
+      <p><img src="img/corazon.png">Cargadoras reales mexicanas</p>
+      <table style="width:100%">
+        <tr>
+          <th>Fecha</th>
+          <th>kWh</th>
+          <th>Costo</th>
+        </tr>
+        <tr>
+          <td><span id="today"></span></td>
+          <td><span id="energy"></span></td>
+          <td><span id="total"></span><img src="img/blackUbication.png" alt="ubication" /></td>
+        </tr>
+        =======
   </section>
   <section class="record">
-    <select name="select">
+    <select name="select" class="selectRecord">
+      <option value="">Período</option>
       <option value="value1">Últimos 7 Días</option>
       <option value="value2" selected>Últimos 15 Días</option>
       <option value="value3">Últimos 30 Días</option>
     </select>
-    <h1 id="date"></h1>
-    <p>3 sesiones 5892 kWh $1,200</p>
-    <p><img src="img/corazon.png">Cargadoras reales mexicanas</p>
-    <table style="width:100%">
+    <div class="textRecord">
+      <h1 id="date"></h1>
+      <p>3 sesiones 5892 kWh $1,200</p>
+      <p><img src="img/corazon.png"> Cargadoras reales mexicanas</p>
+    </div>
+
+    <table>
       <tr>
         <th>Fecha</th>
         <th>kWh</th>
@@ -121,40 +150,43 @@
         <td><span id="energy"></span></td>
         <td><span id="total"></span><img src="img/blackUbication.png" alt="ubication" /></td>
       </tr>
+      >>>>>>> upstream/master
     </table>
 
   </section>
 
-  <!-- Yael -->
-  <div id="target">
-  </div>
+  <<<<<<< HEAD <!-- Yael -->
+    <div id="target">
+    </div>
 
-  <footer>
-    <ul>
-      <li><img src="img/Vector.png" alt=""></li>
-      <li><img src="img/calendar_today-24px 1.png" alt=""></li>
-      <li><img src="img/account_box-24px 1.png" alt=""></li>
-      <li><img src="img/Vector(1).png" alt=""></li>
-    </ul>
-  </footer>
+    =======
+    >>>>>>> upstream/master
+    <footer>
+      <ul>
+        <li><img src="img/Vector.png" alt=""></li>
+        <li><img src="img/calendar_today-24px 1.png" alt=""></li>
+        <li><img src="img/account_box-24px 1.png" alt=""></li>
+        <li><img src="img/Vector(1).png" alt=""></li>
+      </ul>
+    </footer>
 
 
-  <!--Enlace a mapa de google-->
-  <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJ5Krf6tvkIa-OwnznUycwQ0qH7wjWz24&center=21.41469569968901,-105.90163134979584&zoom=6&format=png&maptype=roadmap&style=feature:landscape%7Ccolor:0xe6e9ec&style=feature:landscape.natural.terrain%7Ccolor:0xe6e9ec&style=feature:landscape.natural.terrain%7Celement:geometry%7Ccolor:0xe6e9ec&style=feature:poi.park%7Ccolor:0xa4dbb2&style=feature:road%7Ccolor:0xb0c1dd&style=feature:water%7Ccolor:0xacd5f5&size=480x360"
-    async defer>
-  </script>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-  </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-  </script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-  </script>
-  <script src="mapa.js"></script>
-  <script src="dropdown.js"></script>
+    <!--Enlace a mapa de google-->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJ5Krf6tvkIa-OwnznUycwQ0qH7wjWz24&center=21.41469569968901,-105.90163134979584&zoom=6&format=png&maptype=roadmap&style=feature:landscape%7Ccolor:0xe6e9ec&style=feature:landscape.natural.terrain%7Ccolor:0xe6e9ec&style=feature:landscape.natural.terrain%7Celement:geometry%7Ccolor:0xe6e9ec&style=feature:poi.park%7Ccolor:0xa4dbb2&style=feature:road%7Ccolor:0xb0c1dd&style=feature:water%7Ccolor:0xacd5f5&size=480x360"
+      async defer>
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script src="mapa.js"></script>
+    <script src="dropdown.js"></script>
 </body>
 
 </html>
