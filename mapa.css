@@ -155,14 +155,14 @@ html, body {
                 background-color: #609C32;
             }
 footer {
-    margin-top: 30%;
-    height: 15%;
+    margin-top: 25%;
+    height: 9%;
     background-color: #F2F2F2;
     position: fixed;
     width: 100vw;
     z-index: 11;
     top: 73%;
-    padding-top: 3%;
+    padding-top: 1%;
 }
 
 footer ul {
