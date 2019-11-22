@@ -6,10 +6,31 @@ html, body {
 }
 
 .form-control {
-    width: 55%!important;
+    width: 80%!important;
     border-radius: 4rem!important;
 
 }
+
+/* Dropdown */
+.dropdown-submenu {
+    position: relative;
+  }
+  
+  .dropdown-submenu a::after {
+    transform: rotate(-90deg);
+    position: absolute;
+    right: 6px;
+    top: .8em;
+  }
+  
+  .dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-left: .1rem;
+    margin-right: .1rem;
+  }
+
+
 #containerMap{
     height: 100vh;
 }

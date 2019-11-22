@@ -23,29 +23,9 @@ const getLocations = () => {
                 
                 locationsInfo.push(locationData);
                 
-                console.log(location.name);
-                
-                // locationsInfo.filter(location =>
-                //     location.cargador === carg
-                // )
-
+            
             });
-            // console.log('COORDENADAS',locationInfo);
-            
 
-            // let names = [];
-            // locations.forEach(location => {
-            //     let allNames = {
-            //             name:(location.name),
-            //     };
-            //     names.push(allNames)
-            // });
-            // console.log(names);
-            
-
-
-
-            
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition((data) => {
                     let currentPosition = {
