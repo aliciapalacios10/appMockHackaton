@@ -1,11 +1,14 @@
-
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
 }
-
+.nav {
+    width: 100vw;
+    position: fixed!important;
+    z-index: 11!important;
+}
 .form-control {
     width: 79%!important;
     border-radius: 4rem!important;
@@ -103,7 +106,7 @@ html, body {
             display: flex;
             justify-content: center;
             align-items: center;
-            border: solid 1 px black;
+            border: solid 1px black;
         }
         .date{
             box-sizing: border-box;
@@ -295,8 +298,7 @@ li.countdown-loop span {
 /*Record*/
 
 .record {
-    height: 100vh;
-    border: black solid;
+    height: 90vh;
     text-align: center;
 }
 
@@ -304,11 +306,11 @@ li.countdown-loop span {
     background: #c4c4c4;
     border: none;
     border-radius: 5px;
-    width: 167px;
+    width: 170px;
     height: 31px;
     text-align: center;
     margin-bottom: 10%;
-    margin-top: 30%;
+    margin-top: 20%;
     text-decoration: none;
     font-family: "Roboto Light", sans-serif;
     font-style: normal;
@@ -332,7 +334,7 @@ li.countdown-loop span {
     text-align: center;
     border-top: solid 2px black;
     border-bottom: solid 2px black;
-    width: 300px;
+    width: 86%;;
     padding: 2%;
     margin-left: 9%;
 }
