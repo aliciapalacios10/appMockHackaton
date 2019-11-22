@@ -2,15 +2,14 @@
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8">
-  <title>Mapa</title>
-  <meta name="viewport" content="initial-scale=1.0">
-  <link rel="stylesheet" href="mapa.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-</head>
+    <meta charset="UTF-8">
+    <title>Mapa</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <link rel="stylesheet"  href="mapa.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
+  </head>
 <body>
   <nav class="navbar navbar-dark bg-dark">
     <form class="form-inline">
@@ -32,6 +31,58 @@
               <li><a class="dropdown-item" href="#">$35</a></li>
               <li><a class="dropdown-item " href="#">$45</a></li>
               <li><a class="dropdown-item" href="#">$50</a></li>
+<nav class="navbar navbar-dark bg-dark">
+    <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+</nav>
+
+    <nav class="navbar navbar-dark bg-dark">
+        <form class="form-inline">
+          <input class="form-control mr-sm-2" type="search" placeholder="¿Dónde quieres llegar?" aria-label="Search">
+    
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+            aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+    
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle navbarDropdownMenuLink" href="#" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Precio
+                </a>
+                <ul class="dropdown-menu precio"  aria-labelledby="navbarDropdownMenuLink">
+                  <li><a class="dropdown-item" href="#">$25</a></li>
+                  <li><a class="dropdown-item" href="#">$35</a></li>
+                  <li><a class="dropdown-item " href="#">$45</a></li>
+                  <li><a class="dropdown-item" href="#">$50</a></li>
+                </ul>
+              </li>
+    
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle navbarDropdownMenuLink" href="#" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Conectores
+                </a>
+                <ul class="dropdown-menu conector" aria-labelledby="navbarDropdownMenuLink">
+                  <li><a class="dropdown-item" href="#">AC</a></li>
+                  <li><a class="dropdown-item" href="#">DC</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle navbarDropdownMenuLink" href="#" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  Disponibilidad
+                </a>
+                <ul class="dropdown-menu estado " aria-labelledby="navbarDropdownMenuLink">
+                  <li><a class="dropdown-item" data-value="free" href="#">Libre</a></li>
+                  <li><a class="dropdown-item" data-value="busy" href="#">Ocupado</a></li>
+                </ul>
+              </li>
+    
             </ul>
           </li>
           <li class="nav-item dropdown">
@@ -94,8 +145,8 @@
         </div>
       </div>
     </div>
-  </section>
-  <section id="record">
+</section>
+<section class="record">
     <select name="select">
       <option value="value1">Últimos 7 Días</option>
       <option value="value2" selected>Últimos 15 Días</option>
@@ -119,6 +170,10 @@
 
   </section>
 
+<!-- Yael -->
+<div id="target">        
+</div>
+
   <footer>
     <ul>
       <li><img src="img/Vector.png" alt=""></li>
@@ -129,24 +184,21 @@
   </footer>
 
 
-  <!--Enlace a mapa de google-->
-  <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJ5Krf6tvkIa-OwnznUycwQ0qH7wjWz24&center=21.41469569968901,-105.90163134979584&zoom=6&format=png&maptype=roadmap&style=feature:landscape%7Ccolor:0xe6e9ec&style=feature:landscape.natural.terrain%7Ccolor:0xe6e9ec&style=feature:landscape.natural.terrain%7Celement:geometry%7Ccolor:0xe6e9ec&style=feature:poi.park%7Ccolor:0xa4dbb2&style=feature:road%7Ccolor:0xb0c1dd&style=feature:water%7Ccolor:0xacd5f5&size=480x360"
-    async defer>
-  </script>
-  
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-  </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-  </script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-  </script>
-
-  <script src="mapa.js"></script>
-  <script src="dropdown.js"></script>
+<!--Enlace a mapa de google-->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJ5Krf6tvkIa-OwnznUycwQ0qH7wjWz24&center=21.41469569968901,-105.90163134979584&zoom=6&format=png&maptype=roadmap&style=feature:landscape%7Ccolor:0xe6e9ec&style=feature:landscape.natural.terrain%7Ccolor:0xe6e9ec&style=feature:landscape.natural.terrain%7Celement:geometry%7Ccolor:0xe6e9ec&style=feature:poi.park%7Ccolor:0xa4dbb2&style=feature:road%7Ccolor:0xb0c1dd&style=feature:water%7Ccolor:0xacd5f5&size=480x360"
+        async defer>
+</script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+</script>
+<script src="mapa.js"></script>
+<script src="dropdown.js"></script>
 </body>
 
 </html>
