@@ -1,5 +1,4 @@
-
-
+//Func. que muestra los marcadores y mapa
 const getLocations = () => {
     fetch('electricCharger.json')
         .then(response => response.json())
@@ -117,6 +116,7 @@ const dibujarMapa = (obj, locationsInfo) => {
 
 };
 
-
-
 window.addEventListener('load',getLocations);
+
+
+//Func. conteo de carga

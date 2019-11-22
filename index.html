@@ -7,18 +7,44 @@
     <link rel="stylesheet"  href="mapa.css">
 </head>
 <body>
+<!--Contenedor del mapa-->
+<section id="containerMap">
+    <div id="map"></div>
+</section>
 
-<div id="map"></div>
+<!--Contenedor de carga-->
+<section id="loadCalculator">
+    <h1>Cargador</h1>
+    <form >
+        <label>Tiempo de carga:
+            <input type="time" name="hora" value="00:00:00" max="10:00:00" min="00:10:00" step="1">
+            <button><img  src="img/icon.png" alt="Enviar"></button>
+        </label>
+        <br>
+        <label>Costo:
+            <input type="number" name="costo" value="">
+            <button><img  src="img/icon.png" alt="Enviar"></button>
+        </label>
+        <br>
+        <label>Total de kw:
+            <input type="number" name="kw" value="">
+            <button><img  src="img/icon.png" alt="Enviar"></button>
+        </label>
+        <button>Calcular</button>
+        <button>Cargar</button>
+    </form>
+</section>
+
+<section id="containerTime">
+    <div id="countdown1"></div>
+
+</section>
 
 
-<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJ5Krf6tvkIa-OwnznUycwQ0qH7wjWz24"-->
-<!--        async defer>-->
 
-<!--</script>-->
-
+<!--Enlace a mapa de google-->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJ5Krf6tvkIa-OwnznUycwQ0qH7wjWz24&center=21.41469569968901,-105.90163134979584&zoom=6&format=png&maptype=roadmap&style=feature:landscape%7Ccolor:0xe6e9ec&style=feature:landscape.natural.terrain%7Ccolor:0xe6e9ec&style=feature:landscape.natural.terrain%7Celement:geometry%7Ccolor:0xe6e9ec&style=feature:poi.park%7Ccolor:0xa4dbb2&style=feature:road%7Ccolor:0xb0c1dd&style=feature:water%7Ccolor:0xacd5f5&size=480x360"
         async defer>
-
 </script>
 
 

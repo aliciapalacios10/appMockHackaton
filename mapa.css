@@ -1,9 +1,14 @@
-#map {
-    height: 80%;
-}
-
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+}
+#containerMap{
+    height: 30vh;
+}
+#map {
+    height: 100%;
+}
+#loadCalculator{
+    height: 20%;
 }
