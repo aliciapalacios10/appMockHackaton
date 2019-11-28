@@ -58,21 +58,27 @@
                 </ul>
               </li>
             </ul>
-    
-          </div>
-    
-        </form>
-      </nav>
-<!--Contenedor del mapa-->
-<section id="containerMap">
+          </li>
+        </ul>
+
+      </div>
+    </form>
+  </nav>
+
+  <!--Contenedor del mapa-->
+  <section id="containerMap">
     <div id="map"></div>
-</section>
+  </section>
 
-<!-- Yael -->
-<div id="target">        
-</div>
+  <!-- Yael -->
 
-<section id="contador" >
+  <div class="prueba">
+    <div id="target">
+    </div>
+  </div>
+  
+
+  <section id="contador">
     <div class="row">
         <div class="col-12">
             <h1>Cargador</h1>
@@ -103,33 +109,39 @@
                <a href="#record"><button id="pay">Pagar</button></a>
             </div>
         </div>
+        <div id="end" class="invisible">
+          <p>Carga completada</p>
+          <button id="pay">Pagar</button>
+        </div>
+      </div>
     </div>
 </section>
 <section class="record" id="record">
     <h1 style="text-align: center">Historial</h1>
     <select name="select" class="selectRecord">
-        <option value="">Período</option>
-        <option value="value1">Últimos 7 Días</option>
-        <option value="value2" selected>Últimos 15 Días</option>
-        <option value="value3">Últimos 30 Días</option>
+      <option value="">Período</option>
+      <option value="value1">Últimos 7 Días</option>
+      <option value="value2" selected>Últimos 15 Días</option>
+      <option value="value3">Últimos 30 Días</option>
     </select>
     <div class="textRecord">
-        <h1 id="date"></h1>
-        <p>3 sesiones 5892 kWh $1,200</p>
-        <p><img src="img/corazon.png">  Cargadoras reales mexicanas</p>
+      <h1 id="date"></h1>
+      <p>3 sesiones 5892 kWh $1,200</p>
+      <p><img src="img/corazon.png"> Cargadoras reales mexicanas</p>
     </div>
 
-    <table >
-        <tr>
-            <th>Fecha</th>
-            <th>kWh</th>
-            <th>Costo</th>
-        </tr>
-        <tr>
-            <td><span id="today"></span></td>
-            <td><span id="energy"></span></td>
-            <td><span id="total"></span><img src="img/blackUbication.png" alt="ubication"/></td>
-        </tr>
+    <table>
+      <tr>
+        <th>Fecha</th>
+        <th>kWh</th>
+        <th>Costo</th>
+      </tr>
+      <tr>
+        <td><span id="today"></span></td>
+        <td><span id="energy"></span></td>
+        <td><span id="total"></span><img src="img/blackUbication.png" alt="ubication" /></td>
+      </tr>
+     
     </table>
 
   </section>
